@@ -25,6 +25,16 @@ public final class QueryUtils {
     /** Tag for the log messages */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
+    private static final String RESPONSE = "response";
+    private static final String RESULTS = "results";
+    private static final String WEB_TITLE = "webTitle";
+    private static final String SECTION_NAME = "sectionName";
+    private static final String WEB_PUBLICATION_DATE = "webPublicationDate";
+    private static final String WEB_URL = "webUrl";
+    private static final int READ_TIMEOUT = 10000;  /* milliseconds */
+    private static final int CONNECT_TIMEOUT = 15000;  /* milliseconds */
+    private static final String GET_REQUEST_METHOD = "GET";
+
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -91,14 +101,14 @@ public final class QueryUtils {
         InputStream inputStream = null;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setReadTimeout(READ_TIMEOUT);
+            urlConnection.setConnectTimeout(CONNECT_TIMEOUT);
+            urlConnection.setRequestMethod(GET_REQUEST_METHOD);
             urlConnection.connect();
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200) {
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
@@ -142,7 +152,7 @@ public final class QueryUtils {
      * Return a list of {@link NewsStory} objects that has been built up from
      * parsing the given JSON response.
      */
-    public static List<NewsStory> extractFeatureFromJson(String newsStoryJSON) {
+    private static List<NewsStory> extractFeatureFromJson(String newsStoryJSON) {
 
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(newsStoryJSON)) {
@@ -162,19 +172,19 @@ public final class QueryUtils {
 
             //Extract the JSONArray associated with the key "response" which represents a list
             //of JSONObject
-            JSONObject newsStoryArray = baseJsonResponse.getJSONObject("response");
+            JSONObject newsStoryArray = baseJsonResponse.getJSONObject(RESPONSE);
             //Extract the JSONArray associated with the key "result" which represents a list
             //of JSONArray
-            JSONArray resultsArray = newsStoryArray.getJSONArray("results");
+            JSONArray resultsArray = newsStoryArray.getJSONArray(RESULTS);
 
             //For each news story in the newsStoryArray, create a {@link NewsStory} object
             for(int i = 0; i < resultsArray.length(); i++){
                 JSONObject currentNewsStory = resultsArray.getJSONObject(i);
-                String title = currentNewsStory.getString("webTitle");
-                String sectionName = currentNewsStory.getString("sectionName");
-                String webPublicationDate = currentNewsStory.getString("webPublicationDate");
+                String title = currentNewsStory.getString(WEB_TITLE);
+                String sectionName = currentNewsStory.getString(SECTION_NAME);
+                String webPublicationDate = currentNewsStory.getString(WEB_PUBLICATION_DATE);
                 // Extract the value for the key called "webUrl"
-                String url = currentNewsStory.getString("webUrl");
+                String url = currentNewsStory.getString(WEB_URL);
 
                 // Create a new {@link NewsStory} object with the title, sectionName, webPublicationDate,
                 // and url from the JSON response.
