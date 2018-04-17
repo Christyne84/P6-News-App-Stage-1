@@ -17,6 +17,10 @@ public class NewsStory {
     /** Website URL of the news story */
     private String mUrl;
 
+    /** Contributor's name of the news story */
+    private String mContributorName;
+
+
     /**
      * Create a new Info object.
      *
@@ -24,12 +28,15 @@ public class NewsStory {
      * @param sectionName is the sectionName of the NewsStory
      * @param webPublicationDate is the date the NewsStory was published
      * @param url is the website URL to find more details about the NewsStory
+     * @param contributorName is the contributor's name of the news story
      */
-    public NewsStory(String title, String sectionName, String webPublicationDate, String url) {
+    public NewsStory(String title, String sectionName, String webPublicationDate, String url,
+                     String contributorName) {
         mTitle = title;
         mSectionName = sectionName;
         mWebPublicationDate = webPublicationDate;
         mUrl = url;
+        mContributorName = contributorName;
     }
 
     /** Return the title of the news story */
@@ -51,4 +58,10 @@ public class NewsStory {
     public String getUrl() {
         return mUrl;
     }
+
+    /** Returns the contributor's name of the news story. */
+    public String getContributorName() {
+        return mContributorName;
+    }
+
 }

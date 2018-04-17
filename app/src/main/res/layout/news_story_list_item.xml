@@ -20,6 +20,8 @@
         android:textSize="@dimen/text_size_16"
         tools:text="Title" />
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,8 +36,27 @@
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
             android:textColor="@color/subtitleColor"
+            android:layout_gravity="center_vertical"
             android:textSize="@dimen/text_size_12"
             tools:text="Category" />
+
+        <View
+            android:layout_width="@dimen/view_dot_size"
+            android:layout_height="@dimen/view_dot_size"
+            android:background="@drawable/magnitude_circle"
+            android:layout_marginLeft="@dimen/dot_margin_dimension"
+            android:layout_marginRight="@dimen/dot_margin_dimension"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/contributor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/subtitleColor"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/text_size_12"
+            tools:text="Contributor"/>
 
         <View
             android:layout_width="@dimen/view_dot_size"
@@ -49,9 +70,9 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
             android:paddingRight="@dimen/view_dot_size"
             android:textColor="@color/subtitleColor"
+            android:layout_gravity="center_vertical"
             android:textSize="@dimen/text_size_12"
             tools:text="2010-03-06 16:23 "
             android:paddingEnd="@dimen/view_dot_size" />

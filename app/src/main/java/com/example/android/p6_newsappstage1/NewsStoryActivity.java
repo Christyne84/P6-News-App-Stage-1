@@ -34,7 +34,7 @@ public class NewsStoryActivity extends AppCompatActivity
 
     /** URL for news stories  from The Guardian data set */
     private static final String GUARDIANAPIS_REQUEST_URL =
-            "http://content.guardianapis.com/search?api-key=test";
+            "http://content.guardianapis.com/search?show-tags=contributor&api-key=test";
 
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;

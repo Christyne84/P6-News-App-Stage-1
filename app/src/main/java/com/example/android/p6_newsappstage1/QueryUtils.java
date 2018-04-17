@@ -179,16 +179,22 @@ public final class QueryUtils {
 
             //For each news story in the newsStoryArray, create a {@link NewsStory} object
             for(int i = 0; i < resultsArray.length(); i++){
-                JSONObject currentNewsStory = resultsArray.getJSONObject(i);
-                String title = currentNewsStory.getString(WEB_TITLE);
-                String sectionName = currentNewsStory.getString(SECTION_NAME);
-                String webPublicationDate = currentNewsStory.getString(WEB_PUBLICATION_DATE);
+                JSONObject resultObj = resultsArray.getJSONObject(i);
+
+                String title = resultObj.getString(WEB_TITLE);
+                String sectionName = resultObj.getString(SECTION_NAME);
+                String webPublicationDate = resultObj.getString(WEB_PUBLICATION_DATE);
                 // Extract the value for the key called "webUrl"
-                String url = currentNewsStory.getString(WEB_URL);
+                String url = resultObj.getString(WEB_URL);
+
+                JSONArray tagsArray = resultObj.getJSONArray("tags");
+                JSONObject firstTagObj = tagsArray.getJSONObject(0);
+
+                String contributorName = firstTagObj.getString(WEB_TITLE);
 
                 // Create a new {@link NewsStory} object with the title, sectionName, webPublicationDate,
                 // and url from the JSON response.
-                NewsStory newsStory = new NewsStory(title, sectionName, webPublicationDate, url);
+                NewsStory newsStory = new NewsStory(title, sectionName, webPublicationDate, url, contributorName);
                 newsStories.add(newsStory);
             }
 

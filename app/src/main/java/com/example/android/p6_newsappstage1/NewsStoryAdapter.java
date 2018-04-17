@@ -66,6 +66,17 @@ public class NewsStoryAdapter extends ArrayAdapter<NewsStory> {
         //Display the section name of the current news story in that TextView
         sectionNameView.setText(sectionName);
 
+        // Get the contributor's name string from the NewsStory object
+        String contributorName = null;
+        if (currentNewsStory != null) {
+            contributorName = currentNewsStory.getContributorName();
+        }
+        // Find the TextView in the news_story_list_item.xml layout with the ID location_offset.
+        TextView contributorNameView = listItemView.findViewById(R.id.contributor);
+        //Display the section name of the current news story in that TextView
+        contributorNameView.setText(contributorName);
+
+
         //Parse the String which holds the date and time (original "2018-04-15T08:35:35Z" to
         //"2018-04-15" and "08:35:35", and from "08:35:35" to "08:35")
         String originalDate = null;
