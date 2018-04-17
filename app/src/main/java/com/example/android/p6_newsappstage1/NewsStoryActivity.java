@@ -32,10 +32,6 @@ public class NewsStoryActivity extends AppCompatActivity
     /** Adapter for the list of news stories*/
     private NewsStoryAdapter mAdapter;
 
-    /** URL for news stories  from The Guardian data set */
-    private static final String GUARDIANAPIS_REQUEST_URL =
-            "http://content.guardianapis.com/search?show-tags=contributor&api-key=test";
-
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
@@ -113,8 +109,17 @@ public class NewsStoryActivity extends AppCompatActivity
     @Override
     public Loader<List<NewsStory>> onCreateLoader(int i, Bundle bundle) {
         //Log.i(LOG_TAG, getString(R.string.onCreateLoader_log_message));
+
         // Create a new loader for the given URL
-        return new NewsStoryLoader(this, GUARDIANAPIS_REQUEST_URL);
+        // Build URI reference for for news stories from The Guardian data set
+        // http://content.guardianapis.com/search?show-tags=contributor&api-key=test
+        final Uri.Builder uriBuilder = new Uri.Builder();
+        uriBuilder.scheme("http")
+                .authority("content.guardianapis.com")
+                .appendPath("search")
+                .appendQueryParameter("show-tags", "contributor")
+                .appendQueryParameter("api-key", "test");
+        return new NewsStoryLoader(this, uriBuilder.build().toString());
     }
 
     @Override
