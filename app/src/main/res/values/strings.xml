@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">NewsApp - Stage 1</string>
+    <!-- Text to display in the list when there are no newsStories [CHAR LIMIT=NONE] -->
+    <string name="no_news_stories">No news stories found.</string>
+    <!-- Text to display in the list when there is no internet connection [CHAR LIMIT=NONE] -->
+    <string name="no_internet_connection">No internet connection.</string>
+    <!-- Text to display as log messages [CHAR LIMIT=NONE] -->
+    <string name="news_story_activity_oncreate_log_message">TEST: NewsStoryActivity onCreate() called</string>
+    <string name="newsStory_initLoader_log_message">TEST: NewsStoryActivity initLoader calling</string>
+    <string name="onCreateLoader_log_message">TEST: onCreateLoader() called</string>
+    <string name="onLoadFinished_log_message">TEST: onLoadFinished() called</string>
+    <string name="onLoaderReset_log_message">TEST: onLoaderReset() called</string>
+</resources>
