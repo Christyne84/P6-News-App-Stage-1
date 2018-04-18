@@ -2,7 +2,6 @@ package com.example.android.p6_newsappstage1;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  */
 public class NewsStoryLoader extends AsyncTaskLoader<List<NewsStory>> {
     /** Tag for log messages */
-    private static final String LOG_TAG = NewsStoryLoader.class.getName();
+    //private static final String LOG_TAG = NewsStoryLoader.class.getName();
 
     /** Query URL */
     private String mUrl;

@@ -40,8 +40,6 @@ public class NewsStoryAdapter extends ArrayAdapter<NewsStory> {
      * {@link NewsStoryAdapter} is an {@link ArrayAdapter} that can provide the layout for each list item
      * based on a data source, which is a list of {@link NewsStory} objects.
      */
-
-
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {

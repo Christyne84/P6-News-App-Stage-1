@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingEnd="@dimen/padding_16"
-    android:paddingLeft="@dimen/padding_16"
-    android:paddingRight="@dimen/padding_16"
-    android:paddingStart="@dimen/padding_16">
+    android:paddingEnd="@dimen/padding"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
+    android:paddingStart="@dimen/padding">
 
     <TextView
         android:id="@+id/title"
@@ -17,7 +17,7 @@
         android:layout_gravity="center_vertical"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/titleTextColorNewsStory"
-        android:textSize="@dimen/text_size_16"
+        android:textSize="@dimen/text_size_medium"
         tools:text="Title" />
 
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:paddingBottom="@dimen/padding_16"
+        android:paddingBottom="@dimen/padding"
         android:orientation="horizontal">
 
         <TextView
@@ -37,7 +37,7 @@
             android:textAllCaps="true"
             android:textColor="@color/subtitleColor"
             android:layout_gravity="center_vertical"
-            android:textSize="@dimen/text_size_12"
+            android:textSize="@dimen/text_size_small"
             tools:text="Category" />
 
         <View
@@ -55,7 +55,7 @@
             android:layout_gravity="center_vertical"
             android:textColor="@color/subtitleColor"
             android:fontFamily="sans-serif-medium"
-            android:textSize="@dimen/text_size_12"
+            android:textSize="@dimen/text_size_small"
             tools:text="Contributor"/>
 
         <View
@@ -73,7 +73,7 @@
             android:paddingRight="@dimen/view_dot_size"
             android:textColor="@color/subtitleColor"
             android:layout_gravity="center_vertical"
-            android:textSize="@dimen/text_size_12"
+            android:textSize="@dimen/text_size_small"
             tools:text="2010-03-06 16:23 "
             android:paddingEnd="@dimen/view_dot_size" />
 
